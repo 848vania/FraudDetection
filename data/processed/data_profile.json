@@ -1,0 +1,255 @@
+{
+  "num_rows": 50000,
+  "num_columns": 16,
+  "target_column": "is_fraud",
+  "target_exists": true,
+  "positive_count": 1531,
+  "negative_count": 48469,
+  "fraud_rate": 0.03062,
+  "class_imbalance_ratio": 31.658393207054214,
+  "majority_class_accuracy": 0.96938,
+  "missing_values": {
+    "transaction_id": 0,
+    "customer_id": 0,
+    "transaction_amount": 0,
+    "transaction_hour": 0,
+    "merchant_category": 0,
+    "customer_tenure_days": 0,
+    "num_transactions_24h": 0,
+    "num_failed_transactions_24h": 0,
+    "avg_transaction_amount_30d": 0,
+    "is_foreign_transaction": 0,
+    "device_type": 0,
+    "country": 0,
+    "previous_chargebacks": 0,
+    "account_age_days": 0,
+    "risk_score_external": 0,
+    "is_fraud": 0
+  },
+  "duplicate_transaction_ids": 0,
+  "numeric_summary": {
+    "transaction_amount": {
+      "mean": 93.59872399999999,
+      "median": 48.04,
+      "std": 228.27482372129157,
+      "min": 1.0,
+      "p25": 24.33,
+      "p75": 96.7525,
+      "p95": 291.50949999999915,
+      "p99": 763.9121000000004,
+      "max": 19148.9
+    },
+    "transaction_hour": {
+      "mean": 11.4905,
+      "median": 11.0,
+      "std": 6.900497234782559,
+      "min": 0.0,
+      "p25": 6.0,
+      "p75": 17.0,
+      "p95": 22.0,
+      "p99": 23.0,
+      "max": 23.0
+    },
+    "customer_tenure_days": {
+      "mean": 1814.83126,
+      "median": 1809.0,
+      "std": 1054.6058490340117,
+      "min": 1.0,
+      "p25": 906.0,
+      "p75": 2730.25,
+      "p95": 3464.0,
+      "p99": 3617.0,
+      "max": 3650.0
+    },
+    "num_transactions_24h": {
+      "mean": 1.49648,
+      "median": 1.0,
+      "std": 1.2197447950892444,
+      "min": 0.0,
+      "p25": 1.0,
+      "p75": 2.0,
+      "p95": 4.0,
+      "p99": 5.0,
+      "max": 10.0
+    },
+    "num_failed_transactions_24h": {
+      "mean": 0.2473,
+      "median": 0.0,
+      "std": 0.4974210073500827,
+      "min": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 1.0,
+      "p99": 2.0,
+      "max": 5.0
+    },
+    "avg_transaction_amount_30d": {
+      "mean": 68.512479,
+      "median": 44.89,
+      "std": 77.48443194908542,
+      "min": 1.28,
+      "p25": 24.27,
+      "p75": 83.4525,
+      "p95": 202.42,
+      "p99": 384.5811000000002,
+      "max": 1363.81
+    },
+    "previous_chargebacks": {
+      "mean": 0.15066,
+      "median": 0.0,
+      "std": 0.3881295882711673,
+      "min": 0.0,
+      "p25": 0.0,
+      "p75": 0.0,
+      "p95": 1.0,
+      "p99": 2.0,
+      "max": 3.0
+    },
+    "account_age_days": {
+      "mean": 2014.4823,
+      "median": 1996.0,
+      "std": 1062.3616225989404,
+      "min": 14.0,
+      "p25": 1107.0,
+      "p75": 2936.0,
+      "p95": 3669.0,
+      "p99": 3877.0,
+      "max": 4040.0
+    },
+    "risk_score_external": {
+      "mean": 0.09110141199999998,
+      "median": 0.0025,
+      "std": 0.1937633431613661,
+      "min": 0.0,
+      "p25": 0.0001,
+      "p75": 0.0619,
+      "p95": 0.5865149999999987,
+      "p99": 0.8700010000000002,
+      "max": 0.9979
+    }
+  },
+  "categorical_summary": {
+    "merchant_category": {
+      "grocery": 10125,
+      "restaurant": 7532,
+      "fashion": 5959,
+      "electronics": 5946,
+      "entertainment": 4946,
+      "utilities": 4944,
+      "travel": 4030,
+      "gambling": 2516,
+      "other": 2493,
+      "crypto": 1509
+    },
+    "device_type": {
+      "mobile": 25111,
+      "desktop": 14970,
+      "pos": 4962,
+      "tablet": 4957
+    },
+    "country": {
+      "US": 27200,
+      "CA": 3811,
+      "GB": 3536,
+      "DE": 3218,
+      "BR": 2699,
+      "IN": 2628,
+      "FR": 2467,
+      "NG": 1579,
+      "CN": 1532,
+      "RU": 1330
+    },
+    "is_foreign_transaction": {
+      "False": 47340,
+      "True": 2660
+    }
+  },
+  "target_rate_by_category": {
+    "merchant_category": {
+      "gambling": 0.05286168521462639,
+      "electronics": 0.04641775983854692,
+      "crypto": 0.03445990722332671,
+      "entertainment": 0.030934088152042055,
+      "utilities": 0.027912621359223302,
+      "fashion": 0.027857022990434636,
+      "restaurant": 0.02628783855549655,
+      "other": 0.026073004412354592,
+      "grocery": 0.024790123456790124,
+      "travel": 0.02456575682382134
+    },
+    "device_type": {
+      "pos": 0.032648125755743655,
+      "tablet": 0.03227758725035303,
+      "desktop": 0.031195724782899132,
+      "mobile": 0.029548803313288997
+    },
+    "country": {
+      "RU": 0.042105263157894736,
+      "IN": 0.03462709284627093,
+      "GB": 0.034219457013574664,
+      "FR": 0.032022699635184435,
+      "US": 0.03154411764705883,
+      "CA": 0.02807662030963002,
+      "NG": 0.02786573780873971,
+      "CN": 0.026762402088772844,
+      "DE": 0.024549409571162212,
+      "BR": 0.02037791774731382
+    },
+    "is_foreign_transaction": {
+      "True": 0.04962406015037594,
+      "False": 0.029552175749894383
+    }
+  },
+  "top_numeric_correlations_with_target": [
+    {
+      "feature": "risk_score_external",
+      "correlation": 0.44442320814682584,
+      "absolute_correlation": 0.44442320814682584
+    },
+    {
+      "feature": "account_age_days",
+      "correlation": -0.2657949323849185,
+      "absolute_correlation": 0.2657949323849185
+    },
+    {
+      "feature": "customer_tenure_days",
+      "correlation": -0.2646609215480121,
+      "absolute_correlation": 0.2646609215480121
+    },
+    {
+      "feature": "transaction_amount",
+      "correlation": 0.06455920706177634,
+      "absolute_correlation": 0.06455920706177634
+    },
+    {
+      "feature": "num_failed_transactions_24h",
+      "correlation": 0.05703386863269737,
+      "absolute_correlation": 0.05703386863269737
+    },
+    {
+      "feature": "num_transactions_24h",
+      "correlation": 0.045387175679582205,
+      "absolute_correlation": 0.045387175679582205
+    },
+    {
+      "feature": "transaction_hour",
+      "correlation": -0.019009280190093795,
+      "absolute_correlation": 0.019009280190093795
+    },
+    {
+      "feature": "previous_chargebacks",
+      "correlation": 0.012065321749378598,
+      "absolute_correlation": 0.012065321749378598
+    },
+    {
+      "feature": "avg_transaction_amount_30d",
+      "correlation": -0.003594927835764959,
+      "absolute_correlation": 0.003594927835764959
+    }
+  ],
+  "profile_notes": [
+    "The fraud rate is 3.06%, so the dataset is imbalanced.",
+    "Accuracy is misleading because a majority-class baseline would achieve 96.94% accuracy.",
+    "Use PR-AUC, recall, precision, fraud capture rate, false positive rate, and expected cost instead of relying only on accuracy."
+  ]
+}

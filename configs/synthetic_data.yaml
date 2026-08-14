@@ -1,0 +1,4 @@
+num_rows: 50000
+fraud_rate: 0.03
+random_seed: 42
+output_path: data/synthetic/transactions.csv

@@ -1,0 +1,19 @@
+.env 
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Data artifacts 
+*.sqlite
+*.sqlite3
+*.db
+*.pkl
+
+# OS files
+.DS_Store
+
+# Model/cache files
+.cache/
+.vscode/

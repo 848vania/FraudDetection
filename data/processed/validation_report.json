@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "num_rows": 50000,
+  "num_columns": 16,
+  "columns": [
+    "transaction_id",
+    "customer_id",
+    "transaction_amount",
+    "transaction_hour",
+    "merchant_category",
+    "customer_tenure_days",
+    "num_transactions_24h",
+    "num_failed_transactions_24h",
+    "avg_transaction_amount_30d",
+    "is_foreign_transaction",
+    "device_type",
+    "country",
+    "previous_chargebacks",
+    "account_age_days",
+    "risk_score_external",
+    "is_fraud"
+  ],
+  "errors": [],
+  "warnings": [
+    "Column transaction_amount contains extreme high outliers. 99th percentile=763.91, 99.9th percentile=2385.83"
+  ],
+  "target_counts": {
+    "0": 48469,
+    "1": 1531
+  },
+  "positive_count": 1531,
+  "negative_count": 48469,
+  "fraud_rate": 0.03062
+}
