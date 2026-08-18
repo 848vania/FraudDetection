@@ -5,8 +5,8 @@ from typing import Any
 import pandas as pd 
 
 from app.features.feature_schema import (
-    CATEGORICAL_COLUMNS,
-    NUMERIC_COLUMNS,
+    RAW_CATEGORICAL_COLUMNS,
+    RAW_NUMERIC_COLUMNS,
     TARGET_COLUMN,
 )
 
@@ -109,7 +109,7 @@ def get_class_imbalance_summary(
 
 def get_numeric_summary(
         df: pd.DataFrame,
-        numeric_colums: list[str] = NUMERIC_COLUMNS,
+        numeric_colums: list[str] = RAW_NUMERIC_COLUMNS,
     ) -> dict[str, dict[str, float]]:
     """
     Calculate summary statistics for numeric columns
@@ -142,7 +142,7 @@ def get_numeric_summary(
 
 def get_categorical_summary(
         df: pd.DataFrame,
-        categorical_columns: list[str] = CATEGORICAL_COLUMNS,
+        categorical_columns: list[str] = RAW_CATEGORICAL_COLUMNS,
         top_n: int = 10,
     ) -> dict[str, dict[str, int]]:
     """
@@ -172,7 +172,7 @@ def get_categorical_summary(
 
 def get_target_rate_by_category(
         df: pd.DataFrame,
-        categorical_columns: list[str] = CATEGORICAL_COLUMNS,
+        categorical_columns: list[str] = RAW_CATEGORICAL_COLUMNS,
         target_col: str = TARGET_COLUMN,
     ) -> dict[str, dict[str, float]]:
     """
@@ -207,7 +207,7 @@ def get_target_rate_by_category(
 
 def get_numeric_correlations_with_target(
         df: pd.DataFrame,
-        numeric_columns: list[str] = NUMERIC_COLUMNS,
+        numeric_columns: list[str] = RAW_NUMERIC_COLUMNS,
         target_col: str = TARGET_COLUMN,
         top_n: int = 10,
     ) -> list[dict[str, float]]:

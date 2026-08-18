@@ -5,7 +5,7 @@ ID_COLUMNS = [
     'customer_id',
 ]
 
-NUMERIC_COLUMNS = [
+RAW_NUMERIC_COLUMNS = [
     'transaction_amount',
     'transaction_hour',
     'customer_tenure_days',
@@ -17,21 +17,45 @@ NUMERIC_COLUMNS = [
     'risk_score_external',
 ]
 
-CATEGORICAL_COLUMNS =[
+RAW_CATEGORICAL_COLUMNS =[
     'merchant_category',
     'device_type',
     'country',
     'is_foreign_transaction',
 ]
 
-REQUIRED_COLUMNS = (
+DERIVED_NUMERIC_COLUMNS = [
+    'amount_to_customer_avg_ratio',
+    'failed_transaction_rate_24h'
+]
+
+DERIVED_BINARY_COLUMNS = [
+    'is_night_transaction',
+    'high_velocity_flag',
+    'new_acoount_flag',
+    'has_previous_chargeback',
+]
+
+NUMERIC_COLUMNS = RAW_NUMERIC_COLUMNS + DERIVED_NUMERIC_COLUMNS + DERIVED_BINARY_COLUMNS
+
+CATEGORICAL_COLUMNS = RAW_CATEGORICAL_COLUMNS
+
+FEATURE_COLUMNS = NUMERIC_COLUMNS + CATEGORICAL_COLUMNS
+
+REQUIRED_RAW_COLUMNS = (
     ID_COLUMNS
-    + NUMERIC_COLUMNS
-    + CATEGORICAL_COLUMNS
+    + RAW_NUMERIC_COLUMNS
+    + RAW_CATEGORICAL_COLUMNS
     + [TARGET_COLUMN]
 )
 
-FEATURE_COLUMNS = NUMERIC_COLUMNS + CATEGORICAL_COLUMNS
+MODEL_INPUT_COLUMNS = FEATURE_COLUMNS
+
+OUTPUT_COLUMNS = (
+    ID_COLUMNS
+    + FEATURE_COLUMNS
+    + [TARGET_COLUMN]
+)
 
 ALLOWED_VALUES = {
     'merchant_category': [

@@ -6,9 +6,9 @@ import json
 
 from app.features.feature_schema import (
     ALLOWED_VALUES,
-    NUMERIC_COLUMNS,
+    RAW_NUMERIC_COLUMNS,
     NUMERIC_RANGES,
-    REQUIRED_COLUMNS,
+    REQUIRED_RAW_COLUMNS,
     TARGET_ALLOWED_VALUES,
     TARGET_COLUMN,
 )
@@ -57,7 +57,7 @@ def validate_required_columns(df: pd.DataFrame) -> list[str]:
     errors = []
 
     missing_columns = [
-        column for column in REQUIRED_COLUMNS
+        column for column in REQUIRED_RAW_COLUMNS
         if column not in df.columns
     ]
 
@@ -78,7 +78,7 @@ def validate_no_unexpected_columns(df: pd.DataFrame) -> list[str]:
     """
     warnings = []
 
-    expected_columns = set(REQUIRED_COLUMNS)
+    expected_columns = set(REQUIRED_RAW_COLUMNS)
     actual_columns = set(df.columns)
 
     unexpected_columns = sorted(actual_columns - expected_columns)
@@ -102,7 +102,7 @@ def validate_missing_values(df: pd.DataFrame) -> tuple[list[str], list[str]]:
     errors = []
     warnings = []
 
-    for column in REQUIRED_COLUMNS:
+    for column in REQUIRED_RAW_COLUMNS:
         if column not in df.columns:
             continue 
 
@@ -151,7 +151,7 @@ def validate_numeric_columns(df: pd.DataFrame) -> list[str]:
     """
     errors = [] 
 
-    for column in NUMERIC_COLUMNS:
+    for column in RAW_NUMERIC_COLUMNS:
         if column not in df.columns:
             continue 
 
