@@ -64,10 +64,10 @@ def test_add_night_transaction_feature():
 
     result = add_night_transaction_feature(df)
 
-    assert "is_night_transaction" in result.columns
-    assert result.loc[0, 'is_night_transaction'] == 0
-    assert result.loc[1, 'is_night_transaction'] == 0
-    assert result.loc[2, 'is_night_transaction'] == 1
+    assert "night_transaction" in result.columns
+    assert result.loc[0, 'night_transaction'] == 0
+    assert result.loc[1, 'night_transaction'] == 0
+    assert result.loc[2, 'night_transaction'] == 1
 
 
 def test_add_failed_transaction_rate_feature():
@@ -106,7 +106,7 @@ def test_add_previous_chargeback_feature():
 
     result = add_previous_chargeback_feature(df)
 
-    assert 'has_previous_chargeback' in df.columns
+    assert 'has_previous_chargeback' in result.columns
     assert result.loc[0, 'has_previous_chargeback'] == 0
     assert result.loc[1, 'has_previous_chargeback'] == 1
 
@@ -118,7 +118,7 @@ def test_add_derived_features():
 
     expected_columns = [
         'amount_to_customer_avg_ratio',
-        'is_night_transaction',
+        'night_transaction',
         'failed_transaction_rate_24h',
         'high_velocity_flag',
         'new_account_flag',

@@ -30,9 +30,9 @@ DERIVED_NUMERIC_COLUMNS = [
 ]
 
 DERIVED_BINARY_COLUMNS = [
-    'is_night_transaction',
+    'night_transaction',
     'high_velocity_flag',
-    'new_acoount_flag',
+    'new_account_flag',
     'has_previous_chargeback',
 ]
 

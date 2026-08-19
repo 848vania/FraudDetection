@@ -1,0 +1,15 @@
+{
+  "input_rows": 50000,
+  "train_rows": 30000,
+  "valid_rows": 10000,
+  "test_rows": 10000,
+  "target_colum": "is_fraud",
+  "input_fraud_rate": 0.03062,
+  "train_fraud_rate": 0.030633333333333332,
+  "valid_fraud_rate": 0.0306,
+  "test_fraud_rate": 0.0306,
+  "random_state": 42,
+  "test_size": 0.2,
+  "valid_size": 0.2,
+  "no_overlap": true
+}

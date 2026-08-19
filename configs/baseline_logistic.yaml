@@ -1,0 +1,15 @@
+model:
+  name: baseline_logistic
+  type: logistic_regression
+  class_weight: balanced
+  max_iter: 1000
+  random_state: 42
+
+training:
+  train_path: data/processed/train.csv
+  valid_path: data/processed/valid.csv
+  target_col: is_fraud
+
+artifacts:
+  model_output_path: artifacts/models/baseline_logistic.joblib
+  metrics_output_path: data/results/training_metrics.json
