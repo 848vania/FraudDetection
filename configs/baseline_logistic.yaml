@@ -15,6 +15,19 @@ training:
   valid_path: data/processed/valid.csv
   target_col: is_fraud
 
+evaluation:
+  test_path: data/processed/test.csv
+  threshold_objective: min_expected_cost
+  false_negative_cost: 500
+  false_positive_cost: 25
+  min_recall: 0.70
+  threshold_grid_size: 101
+
 artifacts:
   model_output_path: artifacts/models/baseline_logistic.joblib
   metrics_output_path: data/results/training_metrics.json
+  evaluation_metrics_path: data/results/evaluation_metrics.json
+  threshold_report_path: data/results/threshold_report.json
+  confusion_matrix_path: data/results/confusion_matrix.png
+  precision_recall_curve_path: data/results/precision_recall_curve.png
+  roc_curve_path: data/results/roc_curve.png
