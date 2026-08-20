@@ -15,6 +15,12 @@ def parse_args():
         help= "Path to training config YAML",
     )
 
+    parser.add_argument(
+        "--no-mlflow",
+        action= "store_true",
+        help= "Disable MLflow experiment tracking",
+    )
+
     return parser.parse_args()
 
 
@@ -22,7 +28,11 @@ def main():
     args = parse_args()
 
     config = load_training_config(args.config_path)
-    result = train_model(config)
+
+    result = train_model(
+        config= config,
+        use_mlflow= not args.no_mlflow,
+    )
 
     print("Training completed")
     print(json.dumps(result, indent=2))

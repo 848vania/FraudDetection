@@ -5,6 +5,7 @@ from typing import Any
 import joblib
 import pandas as pd 
 import yaml 
+import mlflow
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, log_loss, roc_auc_score
 from sklearn.pipeline import Pipeline
@@ -13,6 +14,14 @@ from sklearn.ensemble import RandomForestClassifier
 from app.data.ingest import load_transactions
 from app.features.build_features import split_features_and_target
 from app.features.preprocessing import build_preprocessing_pipeline
+from app.models.tracking import (
+    get_active_run_id,
+    log_artifact_file,
+    log_config_params,
+    log_sklearn_model,
+    log_training_metrics,
+    setup_mlflow,
+)
 
 
 def load_training_config(config_path: str | Path) -> dict[str, Any]:
@@ -202,7 +211,8 @@ def save_training_metrics(
 
 
 def train_model(
-        config: dict[str, Any]
+        config: dict[str, Any],
+        use_mlflow: bool = True,
     ) -> dict[str, Any]:
     """
     Train model from config and save artifacts
@@ -212,14 +222,62 @@ def train_model(
     dict[str, Any]
         Training result summary
     """
+
+    if use_mlflow:
+        setup_mlflow(config)
+
     train_df, valid_df = load_training_data(config)
 
     X_train, y_train = split_features_and_target(train_df)
     X_valid, y_valid = split_features_and_target(valid_df)
 
     pipeline = build_training_pipeline(config)
-    pipeline = fit_model(pipeline, X_train, y_train)
 
+    if use_mlflow:
+        with mlflow.start_run(run_name=config['model']['name']):
+            log_config_params(config)
+
+            pipeline = fit_model(pipeline, X_train, y_train)
+
+            y_valid_proba  = predict_validation_probabilities(pipeline, X_valid)
+
+            metrics = calculate_training_metrics(
+                y_valid= y_valid,
+                y_valid_proba= y_valid_proba,
+            )
+
+            log_training_metrics(metrics)
+
+            result = build_training_result(
+                config= config,
+                train_df= train_df,
+                valid_df= valid_df,
+                metrics= metrics,
+            )
+
+            run_id = get_active_run_id()
+            result['mlflow_run_id'] = run_id
+
+            save_model_artifact(
+                model_pipeline= pipeline,
+                output_path= config['artifacts']['model_output_path'],
+            )
+
+            save_training_metrics(
+                result= result,
+                output_path= config['artifacts']['metrics_output_path'],
+            )
+
+            log_artifact_file(config['artifacts']['model_output_path'])
+            log_artifact_file(config['artifacts']['metrics_output_path'])
+
+            if config.get('experiment', {}).get('log_model', True):
+                log_sklearn_model(pipeline, artifact_path='model')
+
+            return result
+
+    pipeline = fit_model(pipeline, X_train, y_train)
+    
     y_valid_proba  = predict_validation_probabilities(pipeline, X_valid)
 
     metrics = calculate_training_metrics(
@@ -233,6 +291,8 @@ def train_model(
         valid_df= valid_df,
         metrics= metrics,
     )
+
+    result['mlflow_run_id'] = None
 
     save_model_artifact(
         model_pipeline= pipeline,

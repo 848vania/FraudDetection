@@ -1,0 +1,22 @@
+experiment:
+  name: fraud-risk-baseline
+  tracking_uri: sqlite:///mlflow.db
+  log_model: true
+
+model:
+  name: random_forest_baseline
+  type: random_forest
+  n_estimators: 200
+  max_depth: 8
+  class_weight: balanced
+  random_state: 42
+  n_jobs: -1
+
+training:
+  train_path: data/processed/train.csv
+  valid_path: data/processed/valid.csv
+  target_col: is_fraud
+
+artifacts:
+  model_output_path: artifacts/models/random_forest_baseline.joblib
+  metrics_output_path: data/results/training_metrics_random_forest.json
