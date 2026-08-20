@@ -17,3 +17,10 @@ venv/
 # Model/cache files
 .cache/
 .vscode/
+
+# MLflow tracking store and run artifacts
+mlruns/
+mlflow.db
+
+# Trained model artifacts
+artifacts/
