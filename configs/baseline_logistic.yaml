@@ -23,11 +23,17 @@ evaluation:
   min_recall: 0.70
   threshold_grid_size: 101
 
+registry:
+  registered_model_name: fraud-risk-model
+  alias: champion
+  promote_if_registered: true
+
 artifacts:
   model_output_path: artifacts/models/baseline_logistic.joblib
   metrics_output_path: data/results/training_metrics.json
   evaluation_metrics_path: data/results/evaluation_metrics.json
   threshold_report_path: data/results/threshold_report.json
+  registered_model_metadata_path: data/results/registered_model_metadata.json
   confusion_matrix_path: data/results/confusion_matrix.png
   precision_recall_curve_path: data/results/precision_recall_curve.png
   roc_curve_path: data/results/roc_curve.png
