@@ -35,6 +35,7 @@ class PredictionResponse(BaseModel):
     model_name: str 
     model_version: str | None = None 
     model_alias: str | None = None 
+    latency_ms: float
 
 
 class ModelInfoResponse(BaseModel):
@@ -48,3 +49,8 @@ class ModelInfoResponse(BaseModel):
     test_precision: float | None = None 
     test_recall: float | None = None 
     test_expected_cost: float | None = None 
+
+
+class HealthResponse(BaseModel):
+    status: str
+    service: str 
