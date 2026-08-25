@@ -1,0 +1,21 @@
+{
+  "input_path": "data/current/current_transactions.csv",
+  "output_path": "data\\predictions\\predictions_20260825_012628.csv",
+  "started_at": "2026-08-25T01:26:28.995650+00:00",
+  "finished_at": "2026-08-25T01:26:29.554507+00:00",
+  "total_rows": 100,
+  "review_count": 18,
+  "review_rate": 0.18,
+  "high_risk_count": 13,
+  "high_risk_rate": 0.13,
+  "average_fraud_probability": 0.17670712486323137,
+  "risk_band_distribution": {
+    "low": 78,
+    "high": 13,
+    "medium": 9
+  },
+  "decision_distributions": {
+    "approve": 82,
+    "review": 18
+  }
+}
