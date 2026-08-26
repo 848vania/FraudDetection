@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from app.api.routes_model import router as model_router
 from app.api.routes_predict import router as predict_router
+from app.api.routes_monitoring import router as monitoring_router
 from app.core.schemas import HealthResponse
 from app.models.predict import get_cached_model, get_cached_model_metadata
 
@@ -45,3 +46,4 @@ def health() -> dict:
 
 app.include_router(predict_router)
 app.include_router(model_router)
+app.include_router(monitoring_router)
