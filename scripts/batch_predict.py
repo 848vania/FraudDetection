@@ -27,6 +27,12 @@ def parse_args():
         help= "Optional output summary JSON path."
     )
 
+    parser.add_argument(
+        "--log-predictions",
+        action= "store_true",
+        help= "Log batch predictions to the prediction database",
+    )
+
     return parser.parse_args()
 
 
@@ -37,6 +43,7 @@ def main():
         input_path= args.input_path,
         output_path= args.output_path,
         summary_path = args.summary_path,
+        log_predictions= args.log_predictions,
     )
 
     print("Batch prediction completed")

@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException
 
 from app.core.schemas import PredictionResponse, TransactionInput
 from app.models.predict import predict_transaction
+from app.monitoring.logger import log_prediction
 
 
 router = APIRouter(
@@ -34,7 +35,15 @@ def predict(transaction: TransactionInput) -> dict:
 
         prediction = predict_transaction(transaction_dict)
 
-        prediction['latency_ms'] = _latency_ms(start_time)
+        latency = _latency_ms(start_time)
+        prediction['latency_ms'] = latency
+
+        log_prediction(
+            transaction= transaction_dict,
+            prediction= prediction,
+            source= 'api',
+            latency_ms= latency,
+        )
 
         return prediction
 

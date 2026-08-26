@@ -11,6 +11,7 @@ from app.models.predict import (
     get_cached_model_metadata,
     predict_transaction,   
 )
+from app.monitoring.logger import log_prediction
 
 
 def load_batch_input(input_path: str | Path) -> pd.DataFrame:
@@ -171,6 +172,7 @@ def batch_predict(
         input_path: str | Path,
         output_path: str | Path | None = None, 
         summary_path: str | Path | None = None,
+        log_predictions: bool = False,
     ) -> dict[str, Any]:
     """
     Run batch prediction for a transaction CSV 
@@ -198,6 +200,16 @@ def batch_predict(
         predictions= predictions,
         scored_at= scored_at,
     )
+
+    if log_predictions:
+        for transaction, prediction in zip(transactions, enriched_predictions):
+            log_prediction(
+                transaction=transaction,
+                prediction=prediction,
+                source='batch',
+                latency_ms= None,
+            )
+
 
     prediction_df = predictions_to_dataframe(enriched_predictions)
 
