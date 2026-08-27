@@ -1,0 +1,220 @@
+
+    <html>
+    <head>
+        <title>Fraud Model Drift Report</title>
+    </head>
+    <body>
+        <h1>Fraud Model Drift Report</h1>
+
+        <h2>Summary</h2>
+        <p><strong>Overall drift detected:</strong> True</p>
+        <p><strong>Recommendation:</strong> investigate_or_retrain</p>
+        <p><strong>Number of drifted features:</strong> 1</p>
+
+        <h2>Drifted Features</h2>
+        <ul>
+            <li>previous_chargebacks</li>
+        </ul>
+
+        <h2>Raw Summary</h2>
+        <pre>{
+  "overall_drift_detected": true,
+  "num_drifted_features": 1,
+  "drifted_features": [
+    "previous_chargebacks"
+  ],
+  "numeric_drift": [
+    {
+      "feature": "transaction_amount",
+      "type": "numeric",
+      "reference_mean": 92.841321,
+      "current_mean": 74.9161,
+      "relative_mean_change": 0.19307373922436966,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "transaction_hour",
+      "type": "numeric",
+      "reference_mean": 11.455166666666667,
+      "current_mean": 11.19,
+      "relative_mean_change": 0.023148215506831046,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "customer_tenure_days",
+      "type": "numeric",
+      "reference_mean": 1815.7214333333334,
+      "current_mean": 1737.71,
+      "relative_mean_change": 0.042964428298959155,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "num_transactions_24h",
+      "type": "numeric",
+      "reference_mean": 1.5013333333333334,
+      "current_mean": 1.66,
+      "relative_mean_change": 0.10568383658969793,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "num_failed_transactions_24h",
+      "type": "numeric",
+      "reference_mean": 0.24923333333333333,
+      "current_mean": 0.28,
+      "relative_mean_change": 0.12344523204493792,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "avg_transaction_amount_30d",
+      "type": "numeric",
+      "reference_mean": 68.70083699999999,
+      "current_mean": 64.3998,
+      "relative_mean_change": 0.062605307123114,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "previous_chargebacks",
+      "type": "numeric",
+      "reference_mean": 0.1502,
+      "current_mean": 0.09,
+      "relative_mean_change": 0.4007989347536618,
+      "threshold": 0.25,
+      "drift_detected": true
+    },
+    {
+      "feature": "account_age_days",
+      "type": "numeric",
+      "reference_mean": 2015.7369,
+      "current_mean": 1927.74,
+      "relative_mean_change": 0.04365495318362237,
+      "threshold": 0.25,
+      "drift_detected": false
+    },
+    {
+      "feature": "risk_score_external",
+      "type": "numeric",
+      "reference_mean": 0.09121104,
+      "current_mean": 0.09472399999999999,
+      "relative_mean_change": 0.03851463594757823,
+      "threshold": 0.25,
+      "drift_detected": false
+    }
+  ],
+  "categorical_drift": [
+    {
+      "feature": "merchant_category",
+      "type": "categorical",
+      "total_variation_distance": 0.07053333333333334,
+      "threshold": 0.2,
+      "drift_detected": false,
+      "reference_distribution": {
+        "grocery": 0.202,
+        "restaurant": 0.15093333333333334,
+        "electronics": 0.11913333333333333,
+        "fashion": 0.11633333333333333,
+        "utilities": 0.10023333333333333,
+        "entertainment": 0.09963333333333334,
+        "travel": 0.07956666666666666,
+        "gambling": 0.051133333333333336,
+        "other": 0.05046666666666667,
+        "crypto": 0.030566666666666666
+      },
+      "current_distribution": {
+        "grocery": 0.2,
+        "electronics": 0.16,
+        "restaurant": 0.15,
+        "entertainment": 0.1,
+        "fashion": 0.1,
+        "travel": 0.08,
+        "gambling": 0.08,
+        "utilities": 0.07,
+        "crypto": 0.03,
+        "other": 0.03
+      }
+    },
+    {
+      "feature": "device_type",
+      "type": "categorical",
+      "total_variation_distance": 0.07913333333333328,
+      "threshold": 0.2,
+      "drift_detected": false,
+      "reference_distribution": {
+        "mobile": 0.5008666666666667,
+        "desktop": 0.29796666666666666,
+        "pos": 0.1019,
+        "tablet": 0.09926666666666667
+      },
+      "current_distribution": {
+        "mobile": 0.58,
+        "desktop": 0.28,
+        "tablet": 0.07,
+        "pos": 0.07
+      }
+    },
+    {
+      "feature": "country",
+      "type": "categorical",
+      "total_variation_distance": 0.09683333333333333,
+      "threshold": 0.2,
+      "drift_detected": false,
+      "reference_distribution": {
+        "US": 0.5435,
+        "CA": 0.0773,
+        "GB": 0.0716,
+        "DE": 0.06273333333333334,
+        "BR": 0.05346666666666667,
+        "IN": 0.0522,
+        "FR": 0.04873333333333333,
+        "CN": 0.03203333333333333,
+        "NG": 0.0317,
+        "RU": 0.026733333333333335
+      },
+      "current_distribution": {
+        "US": 0.51,
+        "IN": 0.09,
+        "FR": 0.07,
+        "BR": 0.07,
+        "GB": 0.07,
+        "CA": 0.06,
+        "RU": 0.04,
+        "CN": 0.04,
+        "DE": 0.03,
+        "NG": 0.02
+      }
+    },
+    {
+      "feature": "is_foreign_transaction",
+      "type": "categorical",
+      "total_variation_distance": 0.0037333333333332934,
+      "threshold": 0.2,
+      "drift_detected": false,
+      "reference_distribution": {
+        "False": 0.9462666666666667,
+        "True": 0.053733333333333334
+      },
+      "current_distribution": {
+        "False": 0.95,
+        "True": 0.05
+      }
+    }
+  ],
+  "prediction_drift": {
+    "prediction_drift_checked": true,
+    "probabilit_column": "fraud_probability",
+    "reference_mean_probability": 0.15023007143082148,
+    "current_mean_probability": 0.17670712486323137,
+    "relative_mean_change": 0.17624336579379277,
+    "threshold": 0.25,
+    "prediction_drift_detected": false
+  },
+  "recommendation": "investigate_or_retrain"
+}</pre>
+    </body>
+    </html>
+    

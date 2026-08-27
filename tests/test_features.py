@@ -23,7 +23,7 @@ def make_raw_feature_df():
             "customer_id": ["cust_1", "cust_2", "cust_3"],
             "transaction_amount": [100.0, 250.0, 30.0],
             "transaction_hour": [10, 23, 3],
-            "merchant_category": ["groceries", "electronics", "travel"],
+            "merchant_category": ["grocery", "electronics", "travel"],
             "customer_tenure_days": [300, 20, 1000],
             "num_transactions_24h": [1, 9, 2],
             "num_failed_transactions_24h": [0, 3, 0],

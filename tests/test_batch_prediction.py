@@ -19,7 +19,7 @@ def make_batch_df():
             "customer_id": ["cust_1", "cust_2"],
             "transaction_amount": [249.99, 32.5],
             "transaction_hour": [23, 14],
-            "merchant_category": ["electronics", "groceries"],
+            "merchant_category": ["electronics", "grocery"],
             "customer_tenure_days": [45, 800],
             "num_transactions_24h": [9, 1],
             "num_failed_transactions_24h": [3, 0],

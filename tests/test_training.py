@@ -31,7 +31,7 @@ def make_training_df(num_rows: int  = 100) -> pd.DataFrame:
                 "customer_id": f"cust_{i % 20:04d}",
                 "transaction_amount": 500.0 if is_fraud else 50.0,
                 "transaction_hour": 2 if is_fraud else 14,
-                "merchant_category": "electronics" if is_fraud else "groceries",
+                "merchant_category": "electronics" if is_fraud else "grocery",
                 "customer_tenure_days": 10 if is_fraud else 500,
                 "num_transactions_24h": 10 if is_fraud else 1,
                 "num_failed_transactions_24h": 4 if is_fraud else 0,
