@@ -1,0 +1,20 @@
+{
+  "trigger_retraining": true,
+  "recommended_action": "run_retraining_pipeline",
+  "reasons": [
+    "overall_drift_detected",
+    "review_rate_too_high",
+    "high_risk_rate_too_high",
+    "average_fraud_probability_too_high"
+  ],
+  "drift_reasons": [
+    "overall_drift_detected"
+  ],
+  "monitoring_reasons": [
+    "review_rate_too_high",
+    "high_risk_rate_too_high",
+    "average_fraud_probability_too_high"
+  ],
+  "performance_reasons": [],
+  "checked_at": "2026-08-28T01:24:58.817756+00:00"
+}
