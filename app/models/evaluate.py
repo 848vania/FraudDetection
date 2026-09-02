@@ -221,7 +221,7 @@ def evaluate_model(config: dict[str, Any]) -> dict[str, Any]:
 
     evaluation_report = build_evaluation_report(
         model_name = model_name,
-        modedl_path= model_path,
+        model_path= model_path,
         selected_threshold= selected_threshold,
         probability_metrics= probability_metrics,
         threshold_metrics= test_threshold_metrics,

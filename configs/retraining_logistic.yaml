@@ -1,0 +1,45 @@
+experiment:
+  name: fraud-risk-retraining
+  tracking_uri: sqlite:///mlflow.db
+  log_model: true
+
+model: 
+  name: retrained_logistic
+  type: logistic_regression
+  class_weight: balanced
+  max_iter: 1000
+  random_state: 42
+
+training:
+  train_path: data/processed/train.csv
+  valid_path: data/processed/valid.csv
+  target_col: is_fraud
+
+evaluation:
+  test_path: data/processed/test.csv
+  threshold_objective: min_expected_cost
+  false_negative_cost: 500
+  false_positive_cost: 25
+  min_recall: 0.70
+  threshold_grid_size: 101
+
+registry:
+  registered_model_name: fraud-risk-model
+  alias: champion
+  candidate_alias: candidate
+
+promotion:
+  min_pr_aux_improvement: 0.01
+  max_expected_cost_increase: 0.0
+  require_recall_at_least: 0.70
+
+artifacts:
+  model_output_path: artifacts/models/retrained_logistic.joblib
+  metrics_output_path: data/results/training_metrics_retrained.json
+  evaluation_metrics_path: data/results/evaluation_metrics_retrained.json
+  threshold_report_path: data/results/threshold_report_retrained.json
+  registered_model_metadata_path: data/results/registered_model_metadata_retrained.json
+  retraining_report_path: data/results/retraining_report.json
+  confusion_matrix_path: data/results/confusion_matrix_retrained.png
+  precision_recall_curve_path: data/results/precision_recall_curve_retrained.png
+  roc_curve_path: data/results/roc_curve_retrained.png

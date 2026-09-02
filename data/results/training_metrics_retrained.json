@@ -1,0 +1,11 @@
+{
+  "model_name": "retrained_logistic",
+  "model_type": "logistic_regression",
+  "train_rows": 30000,
+  "valid_rows": 10000,
+  "valid_roc_auc": 0.9647480889061492,
+  "valid_pr_auc": 0.48538015448284083,
+  "valid_log_loss": 0.2485431244243781,
+  "artifact_path": "artifacts/models/retrained_logistic.joblib",
+  "mlflow_run_id": "955dfcbdfb1b426ab36919433d674678"
+}
