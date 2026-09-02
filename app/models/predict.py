@@ -9,6 +9,7 @@ from app.models.registry import (
     load_registered_model_metadata,
 )
 from app.models.train import load_training_config
+from app.models.explain import explain_prediction
 
 
 def load_prediction_config(
@@ -192,6 +193,7 @@ def predict_transaction(
         transaction: dict[str, Any],
         model = None,
         metadata: dict[str, Any] | None = None,
+        include_explanation: bool = False,
     ) -> dict[str, Any]:
     """
     Predict fraud risk for one transaction
@@ -213,12 +215,21 @@ def predict_transaction(
 
     threshold = get_threshold_from_metadata(metadata)
 
-    return build_prediction_response(
+    response =  build_prediction_response(
         transaction= transaction,
         probability= probability,
         threshold= threshold,
         metadata= metadata,
     )
+
+    if include_explanation:
+        response['explanation'] = explain_prediction(
+            model_pipeline= model,
+            X = features,
+            top_n= 5,
+        )
+
+    return response
 
 
 def get_model_info(
