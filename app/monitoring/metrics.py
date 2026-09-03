@@ -147,7 +147,7 @@ def get_monitoring_summary(
         )
 
         return {
-            'total_predicitions': len(all_logs),
+            'total_predictions': len(all_logs),
             'average_latency_ms': average_latency_ms(all_logs),
             'average_fraud_probability': average_fraud_probability(all_logs),
             'review_rate': review_rate(all_logs),
