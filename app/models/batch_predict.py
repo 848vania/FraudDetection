@@ -1,15 +1,15 @@
-import json 
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import pandas as pd 
+import pandas as pd
 
 from app.data.ingest import load_transactions
 from app.models.predict import (
     get_cached_model,
     get_cached_model_metadata,
-    predict_transaction,   
+    predict_transaction,
 )
 from app.monitoring.logger import log_prediction
 

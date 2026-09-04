@@ -1,9 +1,9 @@
-import pandas as pd 
+import pandas as pd
 
 from app.data.profiling import (
     generate_data_profile,
-    get_class_imbalance_summary,
     get_categorical_summary,
+    get_class_imbalance_summary,
     get_duplicate_transaction_count,
     get_missing_value_summary,
     get_numeric_correlations_with_target,

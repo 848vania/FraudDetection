@@ -1,4 +1,4 @@
-import pytest 
+import pytest
 
 from app.models.thresholding import (
     calculate_confusion_counts,

@@ -1,6 +1,6 @@
-from pathlib import Path
 
-import pandas as pd 
+import numpy as np
+import pandas as pd
 
 from app.models.evaluate import (
     build_evaluation_report,
@@ -12,12 +12,12 @@ from app.models.evaluate import (
 
 class FakeModel:
     def predict_proba(self, X):
-        return [
+        return np.array([
             [0.9, 0.1],
             [0.8, 0.2],
             [0.2, 0.8],
             [0.1, 0.9],
-        ]
+        ])
 
 
 def test_predict_probabilities():
@@ -66,7 +66,7 @@ def test_build_evaluation_report():
     assert report['model_name'] == 'baseline_logistic'
     assert report['selected_threshold'] == 0.7
     assert report['test_roc_auc'] == 0.9
-    assert report['expected_roc'] == 1000
+    assert report['expected_cost'] == 1000
 
 
 def test_save_json(tmp_path):

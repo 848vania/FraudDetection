@@ -1,5 +1,6 @@
+from unittest.mock import patch
+
 import pytest
-from unittest.mock import patch 
 
 from app.models.registry import (
     build_registry_metadata,

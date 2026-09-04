@@ -1,4 +1,4 @@
-import argparse 
+import argparse
 
 from app.data.ingest import load_transactions
 from app.data.profiling import generate_data_profile, save_data_profile

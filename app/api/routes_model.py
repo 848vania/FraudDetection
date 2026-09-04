@@ -3,7 +3,6 @@ from fastapi import APIRouter, HTTPException
 from app.core.schemas import ModelInfoResponse
 from app.models.predict import get_model_info
 
-
 router = APIRouter(
     prefix= '/model',
     tags= ['model'],

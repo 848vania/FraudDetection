@@ -1,14 +1,14 @@
-import json 
+import json
 from pathlib import Path
 from typing import Any
 
-import matplotlib.pyplot as plt 
-import pandas as pd 
+import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn.metrics import (
-    average_precision_score,
     ConfusionMatrixDisplay,
     PrecisionRecallDisplay,
     RocCurveDisplay,
+    average_precision_score,
     roc_auc_score,
 )
 

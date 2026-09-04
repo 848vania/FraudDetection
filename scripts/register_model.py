@@ -1,5 +1,5 @@
-import argparse 
-import json 
+import argparse
+import json
 
 from app.models.registry import register_model_version
 from app.models.train import load_training_config

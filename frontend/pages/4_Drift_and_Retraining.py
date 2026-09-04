@@ -1,12 +1,11 @@
 import pandas as pd
-import streamlit as st 
+import streamlit as st
 
 from frontend.utils import (
     load_drift_summary,
     load_retraining_report,
     load_retraining_trigger_report,
 )
-
 
 st.set_page_config(
     page_title= 'Drift and Retraining',

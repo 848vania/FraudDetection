@@ -1,5 +1,5 @@
-import argparse 
-import json 
+import argparse
+import json
 
 from app.monitoring.retraining import run_retraining_trigger_check
 

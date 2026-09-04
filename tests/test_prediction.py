@@ -1,4 +1,4 @@
-import pandas as pd 
+import pandas as pd
 
 from app.models.predict import (
     assign_risk_band,

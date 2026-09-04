@@ -1,5 +1,5 @@
-import argparse 
-import json 
+import argparse
+import json
 
 from app.monitoring.drift import run_drift_check
 

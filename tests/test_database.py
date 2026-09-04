@@ -1,4 +1,4 @@
-import json 
+import json
 
 from app.database.connection import Base, SessionLocal, engine
 from app.database.crud import (

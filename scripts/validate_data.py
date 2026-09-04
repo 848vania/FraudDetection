@@ -1,5 +1,5 @@
 import argparse
-import sys 
+import sys
 
 from app.data.validation import (
     load_raw_data,

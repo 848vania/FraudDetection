@@ -1,14 +1,13 @@
-from pathlib import Path 
 
-import pandas as pd 
+import pandas as pd
 
 from app.models.batch_predict import (
     add_batch_metadata,
+    batch_predict,
     build_batch_summary,
     dataframe_to_transactions,
     predictions_to_dataframe,
     save_batch_predictions,
-    batch_predict,
 )
 
 

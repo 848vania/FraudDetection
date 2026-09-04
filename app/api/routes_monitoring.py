@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException
 
 from app.monitoring.metrics import get_monitoring_summary
 
-
 router = APIRouter(
     prefix = "/monitoring",
     tags = ['monitoring'],

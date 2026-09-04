@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import pandas as pd 
+import pandas as pd
 
 
 def load_transactions(path: str | Path) -> pd.DataFrame:

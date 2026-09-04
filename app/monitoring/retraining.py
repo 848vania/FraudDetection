@@ -1,9 +1,9 @@
-import json  
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from app.monitoring.metrics import  get_monitoring_summary
+from app.monitoring.metrics import get_monitoring_summary
 
 
 def load_json_file(path: str | Path) -> dict[str, Any]:

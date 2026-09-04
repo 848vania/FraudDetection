@@ -1,4 +1,4 @@
-import json 
+import json
 
 from app.models.predict import predict_transaction
 

@@ -1,15 +1,15 @@
 import json
 from pathlib import Path
-from typing import Any 
+from typing import Any
 
 import joblib
-import pandas as pd 
-import yaml 
 import mlflow
+import pandas as pd
+import yaml
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, log_loss, roc_auc_score
 from sklearn.pipeline import Pipeline
-from sklearn.ensemble import RandomForestClassifier
 
 from app.data.ingest import load_transactions
 from app.features.build_features import split_features_and_target

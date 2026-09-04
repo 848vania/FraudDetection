@@ -1,13 +1,13 @@
-from pathlib import Path 
-from typing import Any 
-
-import pandas as pd 
 import json
+from pathlib import Path
+from typing import Any
+
+import pandas as pd
 
 from app.features.feature_schema import (
     ALLOWED_VALUES,
-    RAW_NUMERIC_COLUMNS,
     NUMERIC_RANGES,
+    RAW_NUMERIC_COLUMNS,
     REQUIRED_RAW_COLUMNS,
     TARGET_ALLOWED_VALUES,
     TARGET_COLUMN,

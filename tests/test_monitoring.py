@@ -1,4 +1,4 @@
-from datetime import  datetime, timezone
+from datetime import datetime, timezone
 
 from app.monitoring.metrics import (
     average_fraud_probability,

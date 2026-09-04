@@ -7,7 +7,6 @@ from frontend.utils import (
     load_threshold_report,
 )
 
-
 st.set_page_config(
     page_title= 'Model Performance',
     page_icon="📊",

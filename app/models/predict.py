@@ -1,23 +1,29 @@
-from functools import  lru_cache
-from typing import Any 
+import os
+from functools import lru_cache
+from typing import Any
 
-import pandas as pd 
+import pandas as pd
 
 from app.features.build_features import build_feature_dataframe
+from app.models.explain import explain_prediction
 from app.models.registry import (
     load_model_for_inference,
     load_registered_model_metadata,
 )
 from app.models.train import load_training_config
-from app.models.explain import explain_prediction
 
 
 def load_prediction_config(
-        config_path: str = "configs/baseline_logistic.yaml",
+        config_path: str | None = None,
     ) -> dict[str, Any]:
     """
     Load config for prediction
     """
+    if config_path is None: 
+        config_path = os.getenv(
+            'DEFAULT_CONFIG_PATH',
+            "configs/baseline_logistic.yaml",
+        )
     return load_training_config(config_path)
 
 

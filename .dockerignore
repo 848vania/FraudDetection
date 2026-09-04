@@ -1,0 +1,37 @@
+# Version control
+.git/
+.github/
+
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Notebooks / experimentation
+notebooks/
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.DS_Store
+.deepeval/
+
+# Docs (not needed at runtime)
+README.md
+architecture.md
+evaluation_report.md
+model_card.md
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Compose/docker files themselves (irrelevant inside build context)
+docker-compose.yml
+docker/

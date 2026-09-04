@@ -1,4 +1,4 @@
-from typing import Any 
+from typing import Any
 
 import numpy as np
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
@@ -95,7 +95,8 @@ def calculate_threshold_metrics(
 
     false_positive_rate = fp / actual_negatives if actual_negatives else 0.0
     false_negative_rate = fp / actual_positives if actual_positives else 0.0
-    review_rate = (tp + fp) / total if total else 0.0 # Represents the total predicted positive rate, showing how often a model gives a positive decision
+    # Total predicted positive rate, i.e. how often the model flags for review
+    review_rate = (tp + fp) / total if total else 0.0
     fraud_capture_rate = recall
 
     expected_cost = calculate_expected_cost(

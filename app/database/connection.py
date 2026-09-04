@@ -3,7 +3,6 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 
 from app.core.config import settings
 
-
 engine = create_engine(
     settings.database_url,
     connect_args= {'check_same_thread': False}
@@ -23,7 +22,6 @@ def init_db() -> None:
     """
     Create database tables if they do not already exist
     """
-    from app.database.models import PredictionLog
 
     Base.metadata.create_all(bind=engine)
 

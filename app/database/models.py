@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 
 from sqlalchemy import Column, DateTime, Float, Integer, String, Text
 
-from app.database.connection import Base 
+from app.database.connection import Base
 
 
 class PredictionLog(Base):

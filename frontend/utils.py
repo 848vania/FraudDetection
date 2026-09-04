@@ -1,12 +1,15 @@
-import json 
+import json
+import os
 from pathlib import Path
 from typing import Any
 
-import pandas as pd 
+import pandas as pd
 import requests
 
-
-API_BASE_URL = 'http://localhost:8000'
+API_BASE_URL = os.getenv(
+    "API_BASE_URL",
+    "http://localhost:8000",
+)
 RESULTS_DIR = Path('data/results')
 
 

@@ -1,5 +1,5 @@
-import pandas as pd 
-import pytest 
+import pandas as pd
+import pytest
 
 from app.data.splitting import (
     build_split_summary,

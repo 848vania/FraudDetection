@@ -1,5 +1,5 @@
 import argparse
-import json 
+import json
 
 from app.models.batch_predict import batch_predict
 

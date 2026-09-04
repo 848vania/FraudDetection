@@ -1,4 +1,4 @@
-import pandas as pd 
+import pandas as pd
 
 from app.features.build_features import (
     add_amount_ratio_feature,
@@ -12,8 +12,8 @@ from app.features.build_features import (
     safe_divide,
     split_features_and_target,
 )
-from app.features.feature_schema import  FEATURE_COLUMNS, TARGET_COLUMN
-from app.features.preprocessing import  build_preprocessing_pipeline
+from app.features.feature_schema import FEATURE_COLUMNS, TARGET_COLUMN
+from app.features.preprocessing import build_preprocessing_pipeline
 
 
 def make_raw_feature_df():

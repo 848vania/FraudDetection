@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any
 
-import mlflow 
+import mlflow
 import mlflow.sklearn
 from sklearn.pipeline import Pipeline
 

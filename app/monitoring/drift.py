@@ -1,11 +1,10 @@
-import json 
+import json
 from pathlib import Path
-from typing import Any 
+from typing import Any
 
-import numpy as np 
-import pandas as pd 
+import pandas as pd
 
-from app.data.ingest import  load_transactions
+from app.data.ingest import load_transactions
 from app.features.feature_schema import CATEGORICAL_COLUMNS, NUMERIC_COLUMNS
 
 

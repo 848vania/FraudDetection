@@ -1,0 +1,66 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    image: fraud-detection-api:latest
+    container_name: fraud-detection-api
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: sqlite:///fraud_predictions.db
+      DEFAULT_CONFIG_PATH: configs/baseline_logistic.yaml
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./configs:/app/configs
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data
+      - ./fraud_predictions.db:/app/fraud_predictions.db
+    networks:
+      - fraud-net
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    image: fraud-detection-frontend:latest
+    container_name: fraud-detection-frontend
+    env_file:
+      - .env
+    environment:
+      API_BASE_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - api
+    networks:
+      - fraud-net
+    restart: unless-stopped
+
+  # Convenience UI/registry browser over the shared mlflow.db/mlruns store.
+  # Not on the runtime critical path: app/models/tracking.py points
+  # mlflow.set_tracking_uri directly at sqlite:///mlflow.db, and
+  # app/models/predict.py hardcodes prefer_registry=False, so `api` and
+  # `frontend` never call this service over HTTP.
+  mlflow:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.mlflow
+    image: fraud-detection-mlflow:latest
+    container_name: fraud-detection-mlflow
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlflow.db:/app/mlflow.db
+      - ./mlruns:/app/mlruns
+    networks:
+      - fraud-net
+    restart: unless-stopped
+
+networks:
+  fraud-net:
+    driver: bridge

@@ -1,11 +1,10 @@
-import time 
+import time
 
 from fastapi import APIRouter, HTTPException
 
 from app.core.schemas import PredictionResponse, TransactionInput
 from app.models.predict import predict_transaction
 from app.monitoring.logger import log_prediction
-
 
 router = APIRouter(
     prefix= "",

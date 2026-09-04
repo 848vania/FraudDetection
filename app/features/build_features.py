@@ -1,13 +1,11 @@
 from pathlib import Path
-from typing import Any 
 
-import numpy as np 
-import pandas as pd 
+import numpy as np
+import pandas as pd
 
 from app.features.feature_schema import (
     FEATURE_COLUMNS,
     ID_COLUMNS,
-    OUTPUT_COLUMNS,
     TARGET_COLUMN,
 )
 
@@ -129,8 +127,6 @@ def normalize_boolean_columns(df: pd.DataFrame) -> pd.DataFrame:
                 {
                     True: True,
                     False: False,
-                    1: True,
-                    0: False,
                     '1': True,
                     '0': False,
                     'true': True,

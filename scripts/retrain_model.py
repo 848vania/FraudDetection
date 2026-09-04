@@ -1,8 +1,8 @@
-import argparse 
-import json 
+import argparse
+import json
 
 from app.models.retrain import run_retraining_pipeline
-from app.models.train import  load_training_config
+from app.models.train import load_training_config
 
 
 def parse_args():

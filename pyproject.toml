@@ -1,0 +1,18 @@
+[project]
+name = "fraud-detection"
+version = "0.1.0"
+description = "End-to-end fraud risk scoring system: training, MLflow tracking, FastAPI serving, monitoring, and automated retraining."
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

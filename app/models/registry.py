@@ -1,4 +1,4 @@
-import json 
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -6,8 +6,8 @@ from typing import Any
 import mlflow
 import mlflow.pyfunc
 
-from app.models.train import load_model_artifact
 from app.models.tracking import setup_mlflow
+from app.models.train import load_model_artifact
 
 
 def load_json_file(path: str | Path)  -> dict[str, Any]:

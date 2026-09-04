@@ -1,7 +1,6 @@
-import streamlit as st  
+import streamlit as st
 
 from frontend.utils import format_latency_ms, format_percent, post_prediction
-
 
 st.set_page_config(
     page_title= "Predict",

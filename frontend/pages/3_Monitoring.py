@@ -1,5 +1,5 @@
-import pandas as pd 
-import streamlit as st  
+import pandas as pd
+import streamlit as st
 
 from frontend.utils import (
     format_latency_ms,

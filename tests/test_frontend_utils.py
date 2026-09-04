@@ -1,4 +1,4 @@
-from frontend.utils import format_cost, format_percent, format_latency_ms
+from frontend.utils import format_cost, format_latency_ms, format_percent
 
 
 def test_format_percent():

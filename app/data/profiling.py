@@ -1,8 +1,8 @@
-import json 
+import json
 from pathlib import Path
-from typing import Any 
+from typing import Any
 
-import pandas as pd 
+import pandas as pd
 
 from app.features.feature_schema import (
     RAW_CATEGORICAL_COLUMNS,

@@ -1,9 +1,13 @@
-import json 
+import json
 from pathlib import Path
 
-import pandas as pd 
+import pandas as pd
+import pytest
 
-from app.features.build_features import  build_feature_dataframe, split_features_and_target
+from app.features.build_features import (
+    build_feature_dataframe,
+    split_features_and_target,
+)
 from app.models.train import (
     build_model,
     build_training_pipeline,
@@ -15,8 +19,6 @@ from app.models.train import (
     save_training_metrics,
     train_model,
 )
-
-import pytest
 
 
 def make_training_df(num_rows: int  = 100) -> pd.DataFrame:
@@ -118,28 +120,6 @@ def test_fit_model_and_predict_probabilities():
 
     X = df.drop(columns= ['is_fraud', 'transaction_id', 'customer_id'], errors= 'ignore')
     y = df['is_fraud']
-
-    config = {
-        'model': {
-            'type': 'logistic_regression',
-            'class_weight': 'balanced',
-            'max_iter': 1000,
-            'random_state': 42,
-        }
-    }
-
-    pipeline = build_training_pipeline(config)
-    fitted_pipeline = fit_model(pipeline, X, y)
-
-    probabilities = predict_validation_probabilities(fitted_pipeline, X)
-
-    assert len(probabilities) == len(X)
-    assert all(0.0 <= probability <= 1.0 for probability in probabilities)
-
-
-def test_fit_model_and_predict_probabilities():
-    df = make_training_df(num_rows=100)
-    X, y = split_features_and_target(df)
 
     config = {
         'model': {
